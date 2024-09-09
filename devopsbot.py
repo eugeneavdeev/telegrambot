@@ -243,7 +243,7 @@ async def get_services(update: Update, context):
     await safe_send_message(update, f"Запущенные сервисы:\n{result}")
 
 async def get_repl_logs(update: Update, context):
-    command = "tail -n 100 /var/lib/docker/volumes/*_master_data/_data/logs/*.log"
+    command = "tail -n 100 /var/lib/postgresql/data/logs/*.log"
     result = ssh_command(context, command)
     await safe_send_message(update, f"Логи репликации:\n{result}")
 
